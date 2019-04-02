@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+  <include file="$(find kinova_planning)/launch/trajectory_follower.launch">
+  </include>
+
+  <include file="$(find kinova_planning)/launch/kinova_planning.launch">
+  </include>
+
+
+</launch>

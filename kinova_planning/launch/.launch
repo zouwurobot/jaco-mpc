@@ -1,0 +1,15 @@
+<launch>
+
+  <node name="high_level_controller" pkg="local_highlevel_controller" type="high_level_controller.py" respawn="false" output="screen">
+
+  <include file="$(find phantomx_reactor_arm_controller)/launch/arbotix_phantomx_reactor_arm_wrist.launch">
+
+  <include file="$(find phantomx_reactor_arm_moveit_config)/launch/demo_real.launch">
+
+  <include file="$(find realsense_camera)/launch/r200_nodelet_rgbd.launch">
+
+  <include file="$(find visp_auto_tracker)/launch/tracklive_firmware.launch">
+
+
+
+</launch>

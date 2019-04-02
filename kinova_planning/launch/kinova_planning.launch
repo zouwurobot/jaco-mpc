@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="chain_start" default="j2n6s300_link_base" />
+  <arg name="chain_end" default="j2n6s300_link_6" />
+  <arg name="timeout" default="0.005" />
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find kinova_description)/urdf/j2n6s300_standalone.xacro'" />
+
+<!--   <node name="fake_joint_trajectory_action_server" pkg="kinova_driver" type="fake_joint_trajectory_action_server" output="screen" respawn="false">
+
+  <node name="fake_joint_trajectory_cotroller" pkg="kinova_driver" type="kinova_fake_joint_trajectory_controller" output="screen"> -->
+
+  <node name="base_planning" pkg="kinova_planning" type="base_planning" output="screen">
+    <param name="chain_start" value="$(arg chain_start)"/>
+    <param name="chain_end" value="$(arg chain_end)"/>
+    <param name="timeout" value="$(arg timeout)"/>
+    <param name="urdf_param" value="/robot_description"/>
+  </node>
+
+
+</launch>
